@@ -6,16 +6,22 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [RouterModule],
   template: `
-    <div class="branding">
       <a [routerLink]="['/']">
-        <img
-          src="./assets/images/logos/logo.svg"
-          class="align-middle m-2"
-          alt="logo"
-        />
+        Sis-coleta
       </a>
-    </div>
-  `,
+  `
+  // `
+  //   <div class="branding">
+  //     <a [routerLink]="['/']">
+  //       <img
+  //         src="./assets/images/logos/logo.svg"
+  //         class="align-middle m-2"
+  //         alt="logo"
+  //       />
+  //     </a>
+  //   </div>
+  // `
+  ,
 })
 export class BrandingComponent {
   constructor() {}

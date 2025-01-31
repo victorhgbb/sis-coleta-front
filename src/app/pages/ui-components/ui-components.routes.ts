@@ -1,23 +1,18 @@
 import { Routes } from '@angular/router';
-import { AppMenuComponent } from './menu/menu.component';
-import { AppFormsComponent } from './forms/forms.component';
-import { AppTablesComponent } from './tables/tables.component';
+import { AppCadastrarColetaComponent } from './cadastrar-coleta/cadastrar-coleta.component';
+import { AppListarColetaComponent } from './listar-coleta/listar-coleta.component';
 
 export const UiComponentsRoutes: Routes = [
   {
     path: '',
     children: [
       {
-        path: 'menu',
-        component: AppMenuComponent,
+        path: 'cadastrar-coleta',
+        component: AppCadastrarColetaComponent,
       },
       {
-        path: 'forms',
-        component: AppFormsComponent,
-      },
-      {
-        path: 'tables',
-        component: AppTablesComponent,
+        path: 'listar-coleta',
+        component: AppListarColetaComponent,
       },
     ],
   },

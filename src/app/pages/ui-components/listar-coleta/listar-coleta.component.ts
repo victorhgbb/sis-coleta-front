@@ -1,11 +1,14 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
-import { MatTableModule } from '@angular/material/table';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MaterialModule } from 'src/app/material.module';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
+import { MapaComponent } from '../../mapa/mapa.component';
+import { PdcService } from 'src/app/services/pdc.service';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 
 // table 1
 export interface productsData {
@@ -48,7 +51,7 @@ const PRODUCT_DATA: productsData[] = [
 ];
 
 @Component({
-  selector: 'app-tables',
+  selector: 'app-listar-coleta',
   standalone: true,
   imports: [
     MatTableModule,
@@ -58,11 +61,38 @@ const PRODUCT_DATA: productsData[] = [
     MatIconModule,
     MatMenuModule,
     MatButtonModule,
+    MapaComponent,
+    MatPaginatorModule
   ],
-  templateUrl: './tables.component.html',
+  templateUrl: './listar-coleta.component.html',
 })
-export class AppTablesComponent {
+export class AppListarColetaComponent implements OnInit{
   // table 1
   displayedColumns1: string[] = ['assigned', 'name', 'priority', 'budget'];
+  pdcDisplayedColumns: string[] = ['name', 'type', 'city', 'budget'];
   dataSource1 = PRODUCT_DATA;
+  pdcDatasource = new MatTableDataSource([]);
+  coords: any;
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  constructor(private pdcService: PdcService){
+
+  }
+
+  ngOnInit(){
+    this.getPdc();
+  }
+
+  getPdc() {
+    this.pdcService.getPdc().subscribe(response => {
+      this.pdcDatasource.data = response;
+      this.pdcDatasource.paginator = this.paginator;
+      this.coords = response.map((pdc: any) => ({
+        lat: parseFloat(pdc.latitude),
+        lng: parseFloat(pdc.longitude),
+      }));
+
+    });
+  }
+
 }

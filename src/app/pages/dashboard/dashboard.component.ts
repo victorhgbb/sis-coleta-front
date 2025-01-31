@@ -19,8 +19,8 @@ import { AppEarningReportsComponent } from 'src/app/components/earning-reports/e
     AppPopularProductsComponent,
     AppEarningReportsComponent
   ],
-  templateUrl: './starter.component.html',
-  styleUrls: ['./starter.component.scss'],
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class StarterComponent {}
+export class DashboardComponent {}

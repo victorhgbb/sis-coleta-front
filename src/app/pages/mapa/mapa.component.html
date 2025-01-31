@@ -1,0 +1,16 @@
+@if(apiLoaded){
+  <google-map width="100%" height="500px" [center]="center" [zoom]="zoom">
+    <map-marker #marker="mapMarker" *ngFor="let marcador of marcadores" 
+      [position]="{ lat: marcador.latitude, lng: marcador.longitude }" 
+      (mapClick)="selecionarPonto(marker, marcador)">
+    </map-marker>
+
+    <!-- Info Window (popup) -->
+    @if(selectedMarker){
+      <map-info-window #infoWindow>
+        <h4>{{ selectedMarker?.name }}</h4>
+        <p>{{ selectedMarker?.address }}</p>
+      </map-info-window>
+    }
+  </google-map>
+}

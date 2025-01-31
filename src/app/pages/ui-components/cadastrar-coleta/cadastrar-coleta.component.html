@@ -1,0 +1,81 @@
+<mat-card class="cardWithShadow theme-card">
+  <mat-card-header>
+    <mat-card-title class="m-b-0">Cadastrar coleta</mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="b-t-1">
+    <form>
+      <div class="row">
+        <div class="col-lg-6">
+          <!-- input -->
+          <mat-label class="f-w-600 m-b-8 d-block">Nome</mat-label>
+          <mat-form-field appearance="outline" class="w-100" color="primary">
+            <input matInput placeholder="Nome do estabelecimento" />
+          </mat-form-field>
+        </div>
+        <div class="col-lg-6">
+          <mat-label class="f-w-600 m-b-8 d-block">Tipo</mat-label>
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-select [(value)]="selectedCountry">
+              @for(option of country; track option.value) {
+              <mat-option [value]="option.value">{{
+                option.viewValue
+              }}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-lg-4">
+          <!-- input -->
+          <mat-label class="f-w-600 m-b-8 d-block">CEP</mat-label>
+          <mat-form-field appearance="outline" class="w-100" color="primary">
+            <input matInput placeholder="CEP" />
+          </mat-form-field>
+        </div>
+        <div class="col-lg-8">
+          <!-- input -->
+          <mat-label class="f-w-600 m-b-8 d-block">Endereço</mat-label>
+          <mat-form-field appearance="outline" class="w-100" color="primary">
+            <input matInput placeholder="Endereço de coleta" />
+          </mat-form-field>
+        </div>
+        <div class="col-lg-4">
+          <!-- input -->
+          <mat-label class="f-w-600 m-b-8 d-block">Número</mat-label>
+          <mat-form-field appearance="outline" class="w-100" color="primary">
+            <input matInput placeholder="Número" />
+          </mat-form-field>
+        </div>
+        <div class="col-lg-8">
+          <!-- input -->
+          <mat-label class="f-w-600 m-b-8 d-block">Complemento</mat-label>
+          <mat-form-field appearance="outline" class="w-100" color="primary">
+            <input matInput placeholder="Complemento" />
+          </mat-form-field>
+        </div>
+        <div class="col-lg-6">
+          <mat-label class="f-w-600 m-b-8 d-block">Telefone</mat-label>
+          <mat-form-field appearance="outline" class="w-100" color="primary">
+            <input matInput placeholder="Telefone" />
+          </mat-form-field>
+        </div>
+        <div class="col-lg-6">
+          <mat-label class="f-w-600 m-b-8 d-block">Cidade</mat-label>
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-select [(value)]="selectedCity">
+              @for(option of city; track option.value) {
+              <mat-option [value]="option.value">{{
+                option.viewValue
+              }}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      <app-mapa></app-mapa>
+      <div class="m-t-12">
+        <button mat-flat-button color="primary" class="m-r-8">Enviar</button>
+        <button mat-stroked-button color="warn">Cancelar</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

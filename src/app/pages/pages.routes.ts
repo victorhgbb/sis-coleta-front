@@ -1,15 +1,14 @@
 import { Routes } from '@angular/router';
-import { StarterComponent } from './starter/starter.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 export const PagesRoutes: Routes = [
   {
     path: '',
-    component: StarterComponent,
+    component: DashboardComponent,
     data: {
-      title: 'Starter',
+      title: 'Dashboard',
       urls: [
-        { title: 'Dashboard', url: '/dashboard' },
-        { title: 'Starter' },
+        { title: 'Dashboard', url: '/dashboard' }
       ],
     },
   },

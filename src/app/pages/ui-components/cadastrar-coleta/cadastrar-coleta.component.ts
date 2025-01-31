@@ -7,6 +7,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatRadioModule } from '@angular/material/radio';
+import { MapaComponent } from '../../mapa/mapa.component';
 
 interface Food {
   value: string;
@@ -14,7 +15,7 @@ interface Food {
 }
 
 @Component({
-  selector: 'app-forms',
+  selector: 'app-cadastrar-coleta',
   standalone: true,
   imports: [
     MatFormFieldModule,
@@ -26,15 +27,18 @@ interface Food {
     MatCardModule,
     MatInputModule,
     MatCheckboxModule,
+    MapaComponent
   ],
-  templateUrl: './forms.component.html',
+  templateUrl: './cadastrar-coleta.component.html',
 })
-export class AppFormsComponent {
+export class AppCadastrarColetaComponent {
   country: Food[] = [
-    { value: 'steak-0', viewValue: 'USA' },
-    { value: 'pizza-1', viewValue: 'India' },
-    { value: 'tacos-2', viewValue: 'France' },
-    { value: 'tacos-3', viewValue: 'UK' },
+    { value: 'Lixo Eletrônico', viewValue: 'Lixo Eletrônico' },
+    { value: 'Lixo Hospitalar', viewValue: 'Lixo Hospitalar' },
+    { value: 'Lixo Reciclável', viewValue: 'Lixo Reciclável' },
+    { value: 'PEV', viewValue: 'PEV' },
+    { value: 'LEV', viewValue: 'LEV' },
+    { value: 'Cooperativas', viewValue: 'Cooperativas' }
   ];
 
   selectedCountry = this.country[2].value;
