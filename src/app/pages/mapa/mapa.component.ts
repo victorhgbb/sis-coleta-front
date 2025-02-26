@@ -35,7 +35,7 @@ export class MapaComponent implements OnChanges{
   loadGoogleMaps(){
       // Carregar API do Google Maps Dinamicamente
       const script = document.createElement('script');
-      script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyDxIG546GtSpuCr_1N6RsXZ751r1Us9u3A`;
+      script.src = `https://maps.googleapis.com/maps/api/js?key=`;
       script.async = true;
       script.defer = true;
       script.onload = () => {
